@@ -43,7 +43,7 @@ echo -e "Found $num_urls URLs for $domain \e[91mbefore\e[0m applying the \e[92mM
 sleep 5  # Pause for 5 seconds
 
 # Inform user about the number of URLs ready for SQL injection testing
-num_sql_urls=$(wc -l "$domain/sql_ready_urls.txt" | cut -d ' ' -f 1)
+num_sql_urls=$(wc -l "$domain/all_urls_withparams.txt" | cut -d ' ' -f 1)
 echo -e "Found $num_sql_urls URLs ready for SQL injection \e[91mafter\e[0m applying the \e[92mMagic Regex Patterns\e[0m $domain." | lolcat
 sleep 5  # Pause for 5 seconds
 # Run Arjun with 20 threads to find more parameters
