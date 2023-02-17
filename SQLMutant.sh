@@ -36,7 +36,7 @@ sleep 1
 # Get URLs from Wayback Machine and filter them using HTTPX
 echo -e "Fetching URLs from Wayback Machine and \e[91madvanced\e[0m Regex Filtering using HTTPX..." | lolcat
 waybackurls "$domain" | httpx -verbose | tee "$domain/all_urls.txt" | grep -iE '(\?|\=|\&)(id|select|update|union|from|where|insert|delete|into|information_schema)' | sort -u > "$domain/sql_ready_urls.txt"
-
+cat "$domain/all_urls.txt" | grep -iE '\?' > "$domain/all_urls_withparams.txt"
 # Inform user about the number of URLs found
 num_urls=$(wc -l "$domain/all_urls.txt" | cut -d ' ' -f 1)
 echo -e "Found $num_urls URLs for $domain \e[91mbefore\e[0m applying the \e[92mMagic Regex Patterns\e[0m" | lolcat
@@ -48,7 +48,7 @@ echo -e "Found $num_sql_urls URLs ready for SQL injection \e[91mafter\e[0m apply
 sleep 5  # Pause for 5 seconds
 # Run Arjun with 20 threads to find more parameters
 echo -e "Finding \e[91mmore\e[0m parameters using Arjun with 20 threads..." | lolcat
-arjun -i "$domain/sql_ready_urls.txt" -t 20 --disable-redirects -oJ "$domain/arjun_output.json" 
+arjun -i "$domain/all_urls.txt" -t 20 --disable-redirects -oJ "$domain/arjun_output.json" 
 
 # Extract URLs with parameters from Arjun's output
 if [ -f "$domain/arjun_output.json" ]; then
@@ -59,7 +59,7 @@ fi
 
 # Merge the URLs found by Arjun with the ones ready for SQL injection
 echo "Merging Arjun and Wayback URLs with Magic..." | lolcat
-if test -f "$domain/arjun_urls.txt"; then cat "$domain/sql_ready_urls.txt" "$domain/arjun_urls.txt" | sort -u > "$domain/sql_ready_urls2.txt"; else cat "$domain/sql_ready_urls.txt" > "$domain/sql_ready_urls2.txt"; fi
+if test -f "$domain/arjun_urls.txt"; then cat "$domain/sql_ready_urls.txt" "$domain/arjun_urls.txt" "$domain/all_urls.txt" "$domain/all_urls_withparams.txt"| sort -u > "$domain/sql_ready_urls2.txt"; else cat "$domain/sql_ready_urls.txt" > "$domain/sql_ready_urls2.txt"; fi
 
 # Inform user about the new number of URLs ready for SQL injection testing
 num_sql_urls2=$(wc -l "$domain/sql_ready_urls2.txt" | cut -d ' ' -f 1)
