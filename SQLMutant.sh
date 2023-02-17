@@ -35,7 +35,7 @@ mkdir "$domain"
 sleep 1
 # Get URLs from Wayback Machine and filter them using HTTPX
 echo -e "Fetching URLs from Wayback Machine and \e[91madvanced\e[0m Regex Filtering using HTTPX..." | lolcat
-waybackurls "$domain" | httpx -verbose | tee "$domain/all_urls.txt" | grep -iE '(\?|\=|\&)(id|select|report|role|update|query|user|name|sort|where|search|params|process|row|view|table|from|sel|results|sleep|fetch|order|keyword|column|field|delete|string|number|filter)=' | sort -u > "$domain/sql_ready_urls.txt"
+waybackurls "$domain" | httpx -verbose | tee "$domain/all_urls.txt" | grep -iE '(\?|\=|\&)(id|select|update|union|from|where|insert|delete|into|load_file|outfile|concat|concat_ws|group_concat|information_schema)' | sort -u > "$domain/sql_ready_urls.txt"
 
 # Inform user about the number of URLs found
 num_urls=$(wc -l "$domain/all_urls.txt" | cut -d ' ' -f 1)
