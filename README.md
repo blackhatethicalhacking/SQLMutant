@@ -53,15 +53,19 @@ To use S3cr3tDetect0rz, you need to have the following tools installed:
 
 - Waybackurls : `go install github.com/tomnomnom/waybackurls@latest`
 
+- Arjun: `pip install arjun`
+
+- SQLMap: `git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev`
+
 # Installation
 
-`git clone https://github.com/blackhatethicalhacking/S3cr3tDetect0rz.git`
+`git clone https://github.com/blackhatethicalhacking/SQLMutant.git`
 
-`cd S3cr3tDetect0rz`
+`cd SQLMutant`
 
-`chmod +x S3cr3tDetect0rz.sh`
+`chmod +x SQLMutant.sh`
 
-`./S3cr3tDetect0rz.sh`
+`./SQLMutant.sh`
 
 - The script will prompt you to provide the target URL(s) to test for open redirect vulnerabilities.
 - Enter the wordlist Path
@@ -70,7 +74,8 @@ To use S3cr3tDetect0rz, you need to have the following tools installed:
 
 **Main Menu**
 
-![Screenshot 2023-02-13 at 3 07 14 AM](https://user-images.githubusercontent.com/13942386/218349267-9b85f492-78a8-451b-a34a-81ecbfa0d2d7.png)
+<img width="959" alt="Screenshot 2023-02-17 at 4 16 43 PM" src="https://user-images.githubusercontent.com/13942386/219679544-4591872f-6257-4ba4-928a-390c75837f0a.png">
+
 
 # Compatibility: 
 
