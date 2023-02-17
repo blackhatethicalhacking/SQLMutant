@@ -77,7 +77,7 @@ echo -e "\033[1;32mFeel free to check it out on our GitHub repo! \033[0m"
 echo -e "\n\033[1;34m--------------------------------------------\033[0m"
 
 echo -e "\033[1;36mYou can view the wallpapers that inspired us during the creation of this tool on our GitHub repo: \033[0m"
-echo -e "\033[1;33mhttps://github.com/blackhatethicalhacking/SQLMutant/tree/main/WallPapers%20Imag1nations%20creating%20this%20tool \033[0m"
+echo -e "\033[1;33mIn Your Directory: SQLMutant/WallPapers Imag1nations creating this tool \033[0m"
 
 echo -e "\033[1;34m--------------------------------------------\033[0m\n"
 
