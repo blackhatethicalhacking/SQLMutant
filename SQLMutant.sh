@@ -83,14 +83,8 @@ echo -e "\033[1;34m--------------------------------------------\033[0m\n"
 
 echo -e "\033[1;32mThank you for using SQLMutant by SaintDruG! \033[0m"
 # Matrix effect
-echo "Exiting the Matrix for 5 seconds in:" | toilet --metal -f term -F border
-sleep 1
-echo "3" | toilet --gay -f term -F border
-sleep 1
-echo "2" | toilet --metal -f term -F border
-sleep 1
-echo "1" | toilet --gay -f term -F border
-sleep 1
+echo "Exiting the Matrix for 5 seconds:" | toilet --metal -f term -F border
+
 
 R='\033[0;31m'
 G='\033[0;32m'
