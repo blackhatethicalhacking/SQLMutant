@@ -45,6 +45,11 @@ SQLMutant will search for automated subdomain enumeration and SQL injection test
 
 - Arjun Integration: SQLMutant also integrates the Arjun tool, which is used to find hidden parameters and directories on a web server. This feature can be used to find additional pages on the target website that may be vulnerable to SQL injection attacks.
 
+Well Features also when you are fighting mutants:
+
+![giphy-2](https://user-images.githubusercontent.com/13942386/220472297-df381eaf-b323-4e9c-ad7d-3148c7ff167f.gif)
+
+
 # Requirements:
 
 To use S3cr3tDetect0rz, you need to have the following tools installed:
