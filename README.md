@@ -52,7 +52,7 @@ Well Features also when you are fighting mutants:
 
 # Requirements:
 
-To use S3cr3tDetect0rz, you need to have the following tools installed:
+To use SQLMutant, you need to have the following tools installed:
 
 - figlet & lolcat: `pip install lolcat` & `apt-get install figlet`
 
