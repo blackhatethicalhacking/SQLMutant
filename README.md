@@ -58,13 +58,8 @@ Well Features also when you are fighting mutants:
 
 To use SQLMutant, you need to have the following tools installed:
 
-- figlet & lolcat: `pip install lolcat` & `apt-get install figlet`
-
-- Waybackurls : `go install github.com/tomnomnom/waybackurls@latest`
-
-- Arjun: `pip install arjun`
-
-- SQLMap: `git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev`
+NADA, took care of this with pre - install script.
+Blackhat is good about pushing commits, so the main branch should be updated soon!
 
 # Installation
 
