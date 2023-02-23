@@ -72,9 +72,6 @@ To use SQLMutant, you need to have the following tools installed:
 
 `./SQLMutant.sh`
 
-- The script will prompt you to provide the target URL(s) to test for open redirect vulnerabilities.
-- Enter the wordlist Path
-
 # Screenshot
 
 **Main Menu**
