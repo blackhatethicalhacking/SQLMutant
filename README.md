@@ -14,6 +14,10 @@
 SQLMutant is written by Chris "SaintDruG" Abou-Chabke from Black Hat Ethical Hacking and is designed for Red Teams and Bug Bounty Hunters!
 </p>
 
+Modded by ShadowDev aka Wishmaster
+
+<a href="https://www.buymeacoffee.com/notarealdev" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 145px !important;" ></a>
+
 # Description
 
 SQLMutant will search for automated subdomain enumeration and SQL injection testing, utilizing several tools including waybackurls, httpx, Arjun, and sqlmap. It begins with a Sun Tzu quote and checks if the user is connected to the internet. Then it prompts the user to enter a domain to scan and creates a directory for the output files. It fetches URLs from Wayback Machine and filters them using HTTPX, and informs the user about the number of URLs found. Then it finds more parameters using Arjun with 20 threads and extracts URLs with parameters from Arjun's output. The script merges the URLs found by Arjun with the ones ready for SQL injection and informs the user about the new number of URLs ready for SQL injection testing. Finally, it tests SQL injection on the new list of URLs using SQLMAP with a tweaked aggressive approach.
