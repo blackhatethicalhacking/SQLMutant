@@ -6,6 +6,78 @@ echo ""
 quotes=("The supreme art of war is to subdue the enemy without fighting." "All warfare is based on deception." "He who knows when he can fight and when he cannot, will be victorious." "The whole secret lies in confusing the enemy, so that he cannot fathom our real intent." "To win one hundred victories in one hundred battles is not the acme of skill. To subdue the enemy without fighting is the acme of skill.")
 # Get a random quote from the array
 random_quote=${quotes[$RANDOM % ${#quotes[@]}]}
+
+echo "We have some housekeeping to take care of first! "
+
+# Function to install packages
+install_package() {
+  package_name=$1
+  echo "$package_name not found, installing..."
+  if command -v dnf > /dev/null; then
+    sudo dnf install -y "$package_name"
+  elif command -v yum > /dev/null; then
+    sudo yum install -y "$package_name"
+  elif command -v apt-get > /dev/null; then
+    sudo apt-get install -y "$package_name"
+  else
+    echo "Error: package manager not found, please install $package_name manually"
+    exit 1
+  fi
+}
+
+# Install dependencies
+declare -a dependencies=("lolcat" "fortune-mod" "figlet" "curl" "toilet")
+for dependency in "${dependencies[@]}"
+do
+  if ! command -v "$dependency" > /dev/null; then
+    install_package "$dependency"
+  fi
+done
+
+echo "All dependencies installed successfully"
+
+echo "Got a few more packages to install . . . "
+
+# Install waybackurls
+go install github.com/tomnomnom/waybackurls@latest
+echo "waybackurls is now installed"
+
+# Install Arjun
+echo "Installing Arjun now"
+git clone https://github.com/s0md3v/Arjun
+cd Arjun || exit
+sudo python3 setup.py install
+echo "Arjun has been installed"
+cd ..
+
+# Install sqlmap
+echo "Installing sqlmap now"
+git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev
+echo "sqlmap has been installed"
+
+echo "installing httpx now"
+go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
+sudo cp $HOME/go/bin/httpx /usr/local/bin
+echo "httpx has been installed "
+
+# Install httpx[cli]
+echo "Installing httpx[cli]..."
+if ! command -v httpx > /dev/null; then
+  echo "httpx not found, installing..."
+  if command -v pip3 > /dev/null; then
+    sudo pip3 install httpx[cli]
+  elif command -v pip > /dev/null; then
+    sudo pip install httpx[cli]
+  else
+    echo "Error: package manager not found, please install httpx[cli] manually"
+    exit 1
+  fi
+fi
+echo "httpx[cli] installed successfully."
+
+echo "All packages installed successfully"
+echo "ShadowDev wuz here . . "
+
 # Print the quote
 echo "Offensive Security Tip: $random_quote - Sun Tzu" | lolcat
 sleep 1
@@ -104,3 +176,4 @@ for ((i=0; i<5; i++)); do
     echo -ne "${R}00 ${G}11 ${Y}01 ${B}10 ${P}11 ${C}00 ${W}10 ${G}01 ${P}11 ${B}00 ${Y}01 ${C}10\r"
     sleep 0.2
 done
+
