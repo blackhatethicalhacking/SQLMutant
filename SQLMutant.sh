@@ -26,7 +26,7 @@ install_package() {
 }
 
 # Install dependencies
-declare -a dependencies=("lolcat" "fortune-mod" "figlet" "curl" "toilet")
+declare -a dependencies=("lolcat" "figlet" "curl" "toilet")
 for dependency in "${dependencies[@]}"
 do
   if ! command -v "$dependency" > /dev/null; then
