@@ -44,9 +44,7 @@ echo "waybackurls is now installed"
 
 # Install Arjun
 echo "Installing Arjun now"
-git clone https://github.com/s0md3v/Arjun
-cd Arjun || exit
-sudo python3 setup.py install
+pip3 install arjun
 echo "Arjun has been installed"
 cd ..
 
@@ -74,6 +72,10 @@ if ! command -v httpx > /dev/null; then
   fi
 fi
 echo "httpx[cli] installed successfully."
+
+echo "Installing uro..."
+pip3 install uro
+echo "uro has been installed."
 
 echo "All packages installed successfully"
 echo "ShadowDev wuz here . . "
@@ -107,7 +109,7 @@ mkdir "$domain"
 sleep 1
 # Get URLs from Wayback Machine and filter them using HTTPX
 echo -e "Fetching URLs from Wayback Machine and \e[91madvanced\e[0m Regex Filtering using HTTPX..." | lolcat
-waybackurls "$domain" | httpx -verbose | tee "$domain/all_urls.txt" | grep -iE '(\?|\=|\&)(id|select|update|union|from|where|insert|delete|into|information_schema)' | sort -u > "$domain/sql_ready_urls.txt"
+waybackurls "$domain" | uro | httpx -verbose | tee "$domain/all_urls.txt" | grep -iE '(\?|\=|\&)(id|select|update|union|from|where|insert|delete|into|information_schema)' | sort -u > "$domain/sql_ready_urls.txt"
 cat "$domain/all_urls.txt" | grep -iE '\?' > "$domain/all_urls_withparams.txt"
 # Inform user about the number of URLs found
 num_urls=$(wc -l "$domain/all_urls.txt" | cut -d ' ' -f 1)
@@ -131,7 +133,7 @@ fi
 
 # Merge the URLs found by Arjun with the ones ready for SQL injection
 echo "Merging Arjun and Wayback URLs with Magic..." | lolcat
-if test -f "$domain/arjun_urls.txt"; then cat "$domain/sql_ready_urls.txt" "$domain/arjun_urls.txt" "$domain/all_urls.txt" "$domain/all_urls_withparams.txt"| sort -u > "$domain/sql_ready_urls2.txt"; else cat "$domain/sql_ready_urls.txt" > "$domain/sql_ready_urls2.txt"; fi
+if test -f "$domain/arjun_urls.txt"; then cat "$domain/sql_ready_urls.txt" "$domain/arjun_urls.txt" "$domain/all_urls.txt" "$domain/all_urls_withparams.txt" | uro | sort -u > "$domain/sql_ready_urls2.txt"; else cat "$domain/sql_ready_urls.txt" > "$domain/sql_ready_urls2.txt"; fi
 
 # Inform user about the new number of URLs ready for SQL injection testing
 num_sql_urls2=$(wc -l "$domain/sql_ready_urls2.txt" | cut -d ' ' -f 1)
