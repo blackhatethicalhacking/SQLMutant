@@ -1,6 +1,6 @@
 #!/bin/bash
 curl --silent "https://raw.githubusercontent.com/blackhatethicalhacking/Subdomain_Bruteforce_bheh/main/ascii.sh" | lolcat
-echo ""
+echo "SANATANI-HACKER"
 # Generate a random Sun Tzu quote for offensive security
 # Array of Sun Tzu quotes
 quotes=("The supreme art of war is to subdue the enemy without fighting." "All warfare is based on deception." "He who knows when he can fight and when he cannot, will be victorious." "The whole secret lies in confusing the enemy, so that he cannot fathom our real intent." "To win one hundred victories in one hundred battles is not the acme of skill. To subdue the enemy without fighting is the acme of skill.")
