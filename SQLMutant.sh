@@ -33,7 +33,7 @@ read domain
 
 # Create a directory for the output files
 echo "Creating directory for output files..." | lolcat
-mkdir "$domain"
+mkdir -p "$domain"
 sleep 1
 # Get URLs from Wayback Machine and filter them using HTTPX
 echo -e "Fetching URLs from Wayback Machine and \e[91madvanced\e[0m Regex Filtering using HTTPX..." | lolcat
