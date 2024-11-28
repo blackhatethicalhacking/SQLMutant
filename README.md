@@ -54,6 +54,8 @@ To use SQLMutant, you need to have the following tools installed:
 NADA, took care of this with pre - install script.
 Blackhat is good about pushing commits, so the main branch should be updated soon!
 
+We also have integrated an automatic requirement installer when you run the tool!
+
 # Installation
 
 `git clone https://github.com/blackhatethicalhacking/SQLMutant.git`
