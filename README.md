@@ -55,6 +55,9 @@ To use SQLMutant, you need to have the following tools installed:
 - go install github.com/tomnomnom/waybackurls@latest
 - apt-get install arjun
 - go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
+- apt-get install jq
+- apt-get intall toilet
+- Make sure SQLMap is installed
 
 # Installation
 
