@@ -51,10 +51,10 @@ Well Features also when you are fighting mutants:
 
 To use SQLMutant, you need to have the following tools installed:
 
-NADA, took care of this with pre - install script.
-Blackhat is good about pushing commits, so the main branch should be updated soon!
-
-We also have integrated an automatic requirement installer when you run the tool!
+- uro: pip3 install uro or pipx install uro
+- go install github.com/tomnomnom/waybackurls@latest
+- apt-get install arjun
+- go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
 
 # Installation
 
